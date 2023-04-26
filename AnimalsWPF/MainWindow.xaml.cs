@@ -23,6 +23,9 @@ namespace AnimalsWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            Repository repository = FactoryRep.GetRep(10);
+
         }
     }
 }

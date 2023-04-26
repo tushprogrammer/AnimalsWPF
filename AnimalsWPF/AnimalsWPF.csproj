@@ -59,16 +59,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Amphibians.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Birds.cs" />
+    <Compile Include="IAnimal.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mammals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

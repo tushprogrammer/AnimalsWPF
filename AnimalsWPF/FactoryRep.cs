@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AnimalsWPF
+{
+    /// <summary>
+    /// Фабрика общего репозитория
+    /// </summary>
+     class FactoryRep
+    {
+        static Random rnd;
+        static FactoryRep()
+        {
+            rnd = new Random();
+        }
+        public static Repository GetRep(int count)
+        {
+            Repository Repository = new Repository();
+            for (int i = 0; i < count; i++)
+            {
+                switch (rnd.Next(4))
+                {
+                    case 1:
+                        Repository.Add(new Mammals($"Млекопитающее {i}", i/4, i*2, $"Страна {i}")); 
+                        break;
+                    case 2:
+                        Repository.Add(new Birds($"Птица {i}", i / 4, i / 2, $"Страна {i}"));
+                        break;
+                    case 3:
+                        Repository.Add(new Amphibians($"Земноводное {i}", i / 2, (int)(1 * 1.5) , $"Страна {i}"));
+                        break;
+                    default:
+
+                        break;
+
+                }
+            }
+            return Repository;
+        }
+        
+
+        
+    }
+}
