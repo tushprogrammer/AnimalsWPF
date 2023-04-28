@@ -11,9 +11,9 @@ namespace AnimalsWPF
         //Кличка
         string Name { get; set; }
         //Возраст
-        int Age { get; set; }
+        double Age { get; set; }
         //Вес
-        int Weight { get; set; }
+        double Weight { get; set; }
         //Происхождение (откуда родом) 
         string CountryFrom { get; set; }
 

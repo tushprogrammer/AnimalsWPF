@@ -19,9 +19,9 @@ namespace AnimalsWPF
         public static Repository GetRep(int count)
         {
             Repository Repository = new Repository();
-            for (int i = 0; i < count; i++)
+            for (double i = 1; i <= count; i++)
             {
-                switch (rnd.Next(4))
+                switch (rnd.Next(1,4))
                 {
                     case 1:
                         Repository.Add(new Mammals($"Млекопитающее {i}", i/4, i*2, $"Страна {i}")); 
@@ -30,7 +30,7 @@ namespace AnimalsWPF
                         Repository.Add(new Birds($"Птица {i}", i / 4, i / 2, $"Страна {i}"));
                         break;
                     case 3:
-                        Repository.Add(new Amphibians($"Земноводное {i}", i / 2, (int)(1 * 1.5) , $"Страна {i}"));
+                        Repository.Add(new Amphibians($"Земноводное {i}", i / 2, (1 * 1.5) , $"Страна {i}"));
                         break;
                     default:
 

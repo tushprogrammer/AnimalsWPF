@@ -23,11 +23,11 @@ namespace AnimalsWPF
         /// <summary>
         /// Возраст
         /// </summary>
-        public int Age { get; set; }
+        public double Age { get; set; }
         /// <summary>
         /// Вес
         /// </summary>
-        public int Weight { get; set; }
+        public double Weight { get; set; }
         /// <summary>
         /// Страна происхождения
         /// </summary>

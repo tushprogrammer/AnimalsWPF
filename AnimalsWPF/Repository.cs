@@ -27,6 +27,11 @@ namespace AnimalsWPF
         {
             animals.Add(animal);
         }
+        public ObservableCollection<IAnimal> GetAnimals()
+        {
+            return animals;
+        }
+
         //тут же будут реализованы add, delete, change, print (вместо банального открытия бд через get,
         //но это еще надо подумать, как реализовать)
     }

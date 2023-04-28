@@ -25,7 +25,17 @@ namespace AnimalsWPF
             InitializeComponent();
 
             Repository repository = FactoryRep.GetRep(10);
+            GridViewAnimals.DataContext = repository.GetAnimals();
+        }
 
+        /// <summary>
+        /// Пкм - добавить
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItemAddClick(object sender, RoutedEventArgs e)
+        {
+            //открыть новое окно с формой заполнения 
         }
     }
 }

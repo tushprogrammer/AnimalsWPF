@@ -7,6 +7,48 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid
+            x:Name="GridViewAnimals"
+            ItemsSource="{Binding}"
+            AutoGenerateColumns="False" 
+            IsReadOnly="False" 
+                   
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    x:Name="name" 
+                    Binding="{Binding Name}" 
+                    Header="Кличка" 
+                    IsReadOnly="True"
+                    />
+                <DataGridTextColumn
+                    x:Name="age" 
+                    Binding="{Binding Age}" 
+                    Header="Возраст" 
+                    IsReadOnly="False"
+                    />
+                <DataGridTextColumn
+                    x:Name="weight" 
+                    Binding="{Binding Weight}" 
+                    Header="Фамилия" 
+                    IsReadOnly="False"
+                    />
+                <DataGridTextColumn
+                    x:Name="countryFrom" 
+                    Binding="{Binding CountryFrom}" 
+                    Header="Страна происхождения" 
+                    IsReadOnly="False"
+                    />
+                
+
+
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить" Click="MenuItemAddClick"/>
+                    <!--<MenuItem Header="Удалить" Click="MenuItemDeleteClick"/>-->
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
     </Grid>
 </Window>
