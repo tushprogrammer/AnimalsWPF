@@ -20,11 +20,12 @@ namespace AnimalsWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        Repository repository;
         public MainWindow()
         {
             InitializeComponent();
 
-            Repository repository = FactoryRep.GetRep(10);
+            repository = FactoryRep.GetRep(10);
             GridViewAnimals.DataContext = repository.GetAnimals();
         }
 
@@ -36,6 +37,13 @@ namespace AnimalsWPF
         private void MenuItemAddClick(object sender, RoutedEventArgs e)
         {
             //открыть новое окно с формой заполнения 
+            NewAnimal animal = new NewAnimal();
+            animal.ShowDialog();
+            if (animal.DialogResult.Value)
+            {
+                repository.Add(animal.Animal);
+            }
+
             
         }
     }

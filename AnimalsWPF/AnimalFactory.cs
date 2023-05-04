@@ -12,9 +12,9 @@ namespace AnimalsWPF
         {
             switch( Type )
             {
-                case "Bird": return new Birds(name, age, wight, country);
-                case "Amphibian": return new Amphibians(name, age, wight, country);
-                case "Mammal": return new Mammals(name, age, wight, country);
+                case "Птица": return new Birds(name, age, wight, country);
+                case "Земноводное": return new Amphibians(name, age, wight, country);
+                case "Млекопитающее": return new Mammals(name, age, wight, country);
 
                 default: return new NullAnimal();
             }

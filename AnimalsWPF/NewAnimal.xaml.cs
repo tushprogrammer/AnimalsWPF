@@ -20,7 +20,8 @@ namespace AnimalsWPF
     /// </summary>
     public partial class NewAnimal : Window
     {
-        public NewAnimal(IAnimal NewAnimal)
+        public IAnimal Animal;
+        public NewAnimal()
         {
             InitializeComponent();
             Add.Click += delegate
@@ -38,13 +39,13 @@ namespace AnimalsWPF
 
                 try
                 {
-                    bool is_num = double.TryParse(NewWeight.Text.ToString(), out Weight);
+                    bool is_num = double.TryParse(NewWeight.Text, out Weight);
                     if (!is_num)
                     {
                         throw new ExceptionNumber("Неправильный ввод в поле: ", "Вес");
                     }
                     
-                    is_num = double.TryParse(NewAge.Text.ToString(), out Age);
+                    is_num = double.TryParse(NewAge.Text, out Age);
                     if (!is_num)
                     {
                         throw new ExceptionNumber("Неправильный ввод в поле: ", "Возраст");
@@ -55,7 +56,7 @@ namespace AnimalsWPF
                     MessageBox.Show(e.Message + e.Field);
                     return;
                 }
-                NewAnimal = AnimalFactory.GetAnimal(NewName.Text, NewCountryFrom.Text, Weight, Age, TypeAnimal.Text);
+                Animal = AnimalFactory.GetAnimal(NewName.Text, NewCountryFrom.Text, Weight, Age, TypeAnimal.Text);
 
                 this.DialogResult = true;
 

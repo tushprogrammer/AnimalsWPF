@@ -8,7 +8,7 @@ namespace AnimalsWPF
 {
     class ExceptionNumber : Exception
     {
-        public ExceptionNumber(string field, string message) : base(message)
+        public ExceptionNumber(string message, string field) : base(message)
         {            
             this.Field = field;
         }

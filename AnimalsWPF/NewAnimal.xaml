@@ -13,8 +13,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="48,135,0,0" TextWrapping="Wrap" Text="Вес" VerticalAlignment="Top" Width="117"/>
         <TextBlock HorizontalAlignment="Left" Margin="48,168,0,0" TextWrapping="Wrap" Text="Возраст" VerticalAlignment="Top" Width="117"/>
         <TextBox x:Name="NewName"  HorizontalAlignment="Left" Margin="170,67,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="NewCountryFrom"  HorizontalAlignment="Left" Margin="170,133,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="NewWeight"  HorizontalAlignment="Left" Margin="170,99,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NewCountryFrom"  HorizontalAlignment="Left" Margin="170,99,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NewWeight"  HorizontalAlignment="Left" Margin="170,133,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="NewAge"  HorizontalAlignment="Left" Margin="170,166,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Добавить новое животное" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="48,43,0,0" TextWrapping="Wrap" Text="Вид" VerticalAlignment="Top" Width="117"/>
