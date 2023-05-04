@@ -36,6 +36,7 @@ namespace AnimalsWPF
         private void MenuItemAddClick(object sender, RoutedEventArgs e)
         {
             //открыть новое окно с формой заполнения 
+            
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalsWPF
 {
-    internal interface IAnimal
+    public interface IAnimal
     {
         //Кличка
         string Name { get; set; }
