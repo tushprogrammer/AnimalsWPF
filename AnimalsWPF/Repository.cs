@@ -31,8 +31,15 @@ namespace AnimalsWPF
         {
             return animals;
         }
-
-        //тут же будут реализованы add, delete, change, print (вместо банального открытия бд через get,
+        /// <summary>
+        /// Метод удаления объекта Animal из БД
+        /// </summary>
+        /// <param name="animal">Объект IAnimal, который надо удалить</param>
+        public void Delete(IAnimal animal)
+        {
+            animals.Remove(animal);
+        }
+        //тут же будут реализованы delete, change, print (вместо банального открытия бд через get,
         //но это еще надо подумать, как реализовать)
     }
 }

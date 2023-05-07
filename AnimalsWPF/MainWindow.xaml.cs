@@ -21,6 +21,7 @@ namespace AnimalsWPF
     public partial class MainWindow : Window
     {
         Repository repository;
+        IAnimal AnimalNow;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,9 +43,18 @@ namespace AnimalsWPF
             if (animal.DialogResult.Value)
             {
                 repository.Add(animal.Animal);
-            }
+            }            
+        }
 
-            
+        /// <summary>
+        /// ПКМ - удалить
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItemDeleteClick(object sender, RoutedEventArgs e)
+        {
+            AnimalNow = GridViewAnimals.SelectedItem as IAnimal; //Выбранный объект
+            repository.Delete(AnimalNow);
         }
     }
 }
