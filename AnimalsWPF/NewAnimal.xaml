@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalsWPF"
         mc:Ignorable="d"
-        Title="NewAnimal" Height="244" Width="358">
+        Title="NewAnimal" Height="263" Width="384">
     <Grid>
         <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="80" Opacity="0.995" Margin="146,194,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="48,69,0,0" TextWrapping="Wrap" Text="Имя (кличка) " VerticalAlignment="Top" Width="117"/>
@@ -18,12 +18,12 @@
         <TextBox x:Name="NewAge"  HorizontalAlignment="Left" Margin="170,166,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Добавить новое животное" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="48,43,0,0" TextWrapping="Wrap" Text="Вид" VerticalAlignment="Top" Width="117"/>
-        <ComboBox x:Name="TypeAnimal" HorizontalAlignment="Left" Margin="170,40,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="TypeAnimalComboBox" HorizontalAlignment="Left" Margin="170,40,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="TypeAnimalComboBox_SelectionChanged">
             <TextBlock>Птица</TextBlock>
             <TextBlock>Млекопитающее</TextBlock>
             <TextBlock>Земноводное</TextBlock>
 
         </ComboBox>
-
+        <TextBox x:Name="TypeAnimal" HorizontalAlignment="Left" Margin="170,40,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" TextChanged="TypeAnimal_TextChanged"></TextBox>
     </Grid>
 </Window>

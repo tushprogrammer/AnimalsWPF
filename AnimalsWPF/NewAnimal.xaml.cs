@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,5 +66,29 @@ namespace AnimalsWPF
             };
         }
 
+        private void TypeAnimalComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TypeAnimalComboBox.Visibility = Visibility.Hidden;
+            TypeAnimal.Visibility = Visibility.Visible;
+            if (TypeAnimalComboBox.SelectedItem != null)
+            {
+                TextBlock typeItem = (TextBlock)TypeAnimalComboBox.SelectedItem;
+                TypeAnimal.Text = typeItem.Text;
+            }
+            
+
+
+
+        }  
+
+        private void TypeAnimal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TypeAnimal.Text == string.Empty)
+            {
+                TypeAnimalComboBox.SelectedItem = null;
+                TypeAnimal.Visibility = Visibility.Hidden;
+                TypeAnimalComboBox.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
