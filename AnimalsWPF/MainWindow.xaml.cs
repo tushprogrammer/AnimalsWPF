@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +26,11 @@ namespace AnimalsWPF
         public MainWindow()
         {
             InitializeComponent();
-
-            repository = FactoryRep.GetRep(10);
+            ObservableCollection<IAnimalSave> saves = new ObservableCollection<IAnimalSave>();
+            saves.Add(new SaveModeJSON());
+            SaveModCombobox.ItemsSource = saves;
+            SaveModCombobox.SelectedIndex = 0;
+            repository = FactoryRep.GetRep(10, SaveModCombobox.SelectedItem as IAnimalSave);
             GridViewAnimals.DataContext = repository.GetAnimals();
         }
 
@@ -49,12 +53,18 @@ namespace AnimalsWPF
         /// <summary>
         /// ПКМ - удалить
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void MenuItemDeleteClick(object sender, RoutedEventArgs e)
         {
             AnimalNow = GridViewAnimals.SelectedItem as IAnimal; //Выбранный объект
             repository.Delete(AnimalNow);
+        }
+
+        /// <summary>
+        /// Кнопка сохранения
+        /// </summary>
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            repository.SaveAnimals();
         }
     }
 }

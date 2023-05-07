@@ -16,9 +16,9 @@ namespace AnimalsWPF
         {
             rnd = new Random();
         }
-        public static Repository GetRep(int count)
+        public static Repository GetRep(int count, IAnimalSave mode)
         {
-            Repository Repository = new Repository();
+            Repository Repository = new Repository(mode);
             for (double i = 1; i <= count; i++)
             {
                 switch (rnd.Next(1,4))

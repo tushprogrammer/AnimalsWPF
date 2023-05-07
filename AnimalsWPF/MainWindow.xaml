@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalsWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="460" Width="348">
+    <Grid Height="458" VerticalAlignment="Top">
         <DataGrid
             x:Name="GridViewAnimals"
             ItemsSource="{Binding}"
             AutoGenerateColumns="False" 
-            IsReadOnly="False" 
+            IsReadOnly="False" Margin="0,0,0,66" 
                    
             >
             <DataGrid.Columns>
@@ -39,7 +39,7 @@
                     Header="Страна происхождения" 
                     IsReadOnly="False"
                     />
-                
+
 
 
             </DataGrid.Columns>
@@ -50,5 +50,9 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
+        <ComboBox x:Name="SaveModCombobox" HorizontalAlignment="Left" Margin="212,402,0,0" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding saves}" DisplayMemberPath = "Name" />
+        <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="10,404,0,0" VerticalAlignment="Top" Width="75" Click="SaveButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="92,405,0,0" TextWrapping="Wrap" Text="Вариант сохранения:" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -13,9 +13,13 @@ namespace AnimalsWPF
         //БД 
         ObservableCollection<IAnimal> animals;
 
+        //Вариант сохранения
+        IAnimalSave Mode { get; set; }
+
         //Конструктор
-        public Repository()
+        public Repository(IAnimalSave mode)
         {
+            this.Mode = mode;
             animals = new ObservableCollection<IAnimal>(); //инициализация бд 
         }
 
@@ -39,7 +43,11 @@ namespace AnimalsWPF
         {
             animals.Remove(animal);
         }
-        //тут же будут реализованы delete, change, print (вместо банального открытия бд через get,
-        //но это еще надо подумать, как реализовать)
+        
+        public void SaveAnimals()
+        {
+            //вызов метода сохранения, не важно какой сейчас мод сохранения установлен
+            Mode.Save(animals);
+        }
     }
 }
