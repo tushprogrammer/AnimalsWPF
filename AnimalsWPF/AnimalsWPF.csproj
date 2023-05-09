@@ -68,6 +68,7 @@
     <Compile Include="NullAnimal.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="SaveModeJSON.cs" />
+    <Compile Include="SaveModeXML.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

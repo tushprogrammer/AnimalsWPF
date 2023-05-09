@@ -12,11 +12,11 @@ namespace AnimalsWPF
     {
         public string Name { get; set; }
 
-        public void Save(ObservableCollection<IAnimal> animals) 
+        public void Save(ObservableCollection<IAnimal> animals, string NameFile) 
         {
             
             string json = JsonConvert.SerializeObject(animals);
-            System.IO.File.WriteAllText($"animals.json", json);
+            System.IO.File.WriteAllText($"{NameFile}.json", json);
         }
 
         public SaveModeJSON ()

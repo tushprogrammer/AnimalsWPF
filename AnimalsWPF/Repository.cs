@@ -14,7 +14,7 @@ namespace AnimalsWPF
         ObservableCollection<IAnimal> animals;
 
         //Вариант сохранения
-        IAnimalSave Mode { get; set; }
+        public IAnimalSave Mode { get; set; }
 
         //Конструктор
         public Repository(IAnimalSave mode)
@@ -44,10 +44,10 @@ namespace AnimalsWPF
             animals.Remove(animal);
         }
         
-        public void SaveAnimals()
+        public void SaveAnimals(string FileName)
         {
             //вызов метода сохранения, не важно какой сейчас мод сохранения установлен
-            Mode.Save(animals);
+            Mode.Save(animals, FileName);
         }
     }
 }

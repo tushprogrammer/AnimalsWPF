@@ -23,17 +23,26 @@ namespace AnimalsWPF
     {
         Repository repository;
         IAnimal AnimalNow;
+        ObservableCollection<IAnimalSave> saves;
         public MainWindow()
         {
             InitializeComponent();
-            ObservableCollection<IAnimalSave> saves = new ObservableCollection<IAnimalSave>();
+            Start();
+            
+        }
+        /// <summary>
+        /// Установка стартовых параметров по умолчанию
+        /// </summary>
+        private void Start()
+        {
+            saves = new ObservableCollection<IAnimalSave>();
             saves.Add(new SaveModeJSON());
+            saves.Add(new SaveModeXML());
             SaveModCombobox.ItemsSource = saves;
+            repository = FactoryRep.GetRep(10, saves[0]);
             SaveModCombobox.SelectedIndex = 0;
-            repository = FactoryRep.GetRep(10, SaveModCombobox.SelectedItem as IAnimalSave);
             GridViewAnimals.DataContext = repository.GetAnimals();
         }
-
         /// <summary>
         /// Пкм - добавить
         /// </summary>
@@ -64,7 +73,16 @@ namespace AnimalsWPF
         /// </summary>
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            repository.SaveAnimals();
+            repository.SaveAnimals("Animal"); //пока что имя по умолчанию
+        }
+
+        private void SaveModCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SaveModCombobox.SelectedItem != null)
+            {
+                IAnimalSave typeSave = (IAnimalSave)SaveModCombobox.SelectedItem;
+                repository.Mode = typeSave;
+            }
         }
     }
 }

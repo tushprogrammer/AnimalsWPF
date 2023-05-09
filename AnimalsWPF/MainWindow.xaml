@@ -51,7 +51,7 @@
             </DataGrid.ContextMenu>
         </DataGrid>
         <ComboBox x:Name="SaveModCombobox" HorizontalAlignment="Left" Margin="212,402,0,0" VerticalAlignment="Top" Width="120"
-                  ItemsSource="{Binding saves}" DisplayMemberPath = "Name" />
+                  ItemsSource="{Binding saves}" DisplayMemberPath = "Name" SelectionChanged="SaveModCombobox_SelectionChanged" />
         <Button x:Name="SaveButton" Content="Сохранить" HorizontalAlignment="Left" Margin="10,404,0,0" VerticalAlignment="Top" Width="75" Click="SaveButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="92,405,0,0" TextWrapping="Wrap" Text="Вариант сохранения:" VerticalAlignment="Top"/>
     </Grid>

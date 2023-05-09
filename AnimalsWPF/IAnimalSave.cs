@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AnimalsWPF
 {
-    interface IAnimalSave
+    public interface IAnimalSave
     {
         string Name { get; set; }
-        void Save(ObservableCollection<IAnimal> animals);
+        void Save(ObservableCollection<IAnimal> animals, string FileName);
     }
 }
