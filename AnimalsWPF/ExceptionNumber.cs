@@ -8,6 +8,7 @@ namespace AnimalsWPF
 {
     class ExceptionNumber : Exception
     {
+        //Ошибка при вводе в текстовые поля
         public ExceptionNumber(string message, string field) : base(message)
         {            
             this.Field = field;

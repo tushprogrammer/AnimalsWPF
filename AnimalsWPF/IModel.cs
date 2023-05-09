@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AnimalsWPF
 {
+    /// <summary>
+    /// Модель логики для реализации паттерна MVP
+    /// </summary>
     public interface IModel
     {
         ObservableCollection<IAnimalSave> GetSaves();

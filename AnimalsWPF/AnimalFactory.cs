@@ -8,6 +8,7 @@ namespace AnimalsWPF
 {
     public class AnimalFactory
     {
+        //Фабрика экземпляров IAnimal
         public static IAnimal GetAnimal(string name,string country, double wight, double age, string Type )
         {
             switch( Type )

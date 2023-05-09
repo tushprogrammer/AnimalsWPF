@@ -18,6 +18,7 @@ namespace AnimalsWPF
         }
         public static Repository GetRep(int count, IAnimalSave mode)
         {
+            //инициализация репозитория с модом сохранения по умолчанию
             Repository Repository = new Repository(mode);
             for (double i = 1; i <= count; i++)
             {

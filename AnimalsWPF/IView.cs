@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AnimalsWPF
 {
+    /// <summary>
+    /// Отображение данных в окне
+    /// </summary>
     interface IView
     {
         ObservableCollection<IAnimal> Animals { set; } //для вывода 

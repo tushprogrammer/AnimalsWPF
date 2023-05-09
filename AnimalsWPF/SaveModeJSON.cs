@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace AnimalsWPF
 {
-    internal class SaveModeJSON : IAnimalSave
+    /// <summary>
+    /// Вариант сохранения данных в JSON формат
+    /// </summary>
+    class SaveModeJSON : IAnimalSave
     {
         public string Name { get; set; }
 

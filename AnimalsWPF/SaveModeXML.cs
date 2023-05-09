@@ -8,6 +8,9 @@ using System.Xml.Linq;
 
 namespace AnimalsWPF
 {
+    /// <summary>
+    /// Вариант сохранения данных в XML формат
+    /// </summary>
     class SaveModeXML : IAnimalSave
     {
         public string Name { get; set; }

@@ -8,6 +8,9 @@ namespace AnimalsWPF
 {
     class NullAnimal : IAnimal
     {
+        /// <summary>
+        /// Объект IAnimal несуществующего типа
+        /// </summary>
         public NullAnimal()
         {
             this.Name = "404 Name Not Found";

@@ -36,7 +36,7 @@ namespace AnimalsWPF
             return animals;
         }
         /// <summary>
-        /// Метод удаления объекта Animal из БД
+        /// Метод удаления объекта IAnimal из БД
         /// </summary>
         /// <param name="animal">Объект IAnimal, который надо удалить</param>
         public void Delete(IAnimal animal)
