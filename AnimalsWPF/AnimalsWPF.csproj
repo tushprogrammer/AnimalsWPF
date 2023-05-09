@@ -62,10 +62,14 @@
     <Compile Include="ExceptionNumber.cs" />
     <Compile Include="FactoryRep.cs" />
     <Compile Include="IAnimalSave.cs" />
+    <Compile Include="IModel.cs" />
+    <Compile Include="IView.cs" />
+    <Compile Include="ModelLogic.cs" />
     <Compile Include="NewAnimal.xaml.cs">
       <DependentUpon>NewAnimal.xaml</DependentUpon>
     </Compile>
     <Compile Include="NullAnimal.cs" />
+    <Compile Include="Presenter.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="SaveModeJSON.cs" />
     <Compile Include="SaveModeXML.cs" />

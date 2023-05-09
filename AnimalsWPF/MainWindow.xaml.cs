@@ -19,30 +19,19 @@ namespace AnimalsWPF
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IView
     {
-        Repository repository;
-        IAnimal AnimalNow;
-        ObservableCollection<IAnimalSave> saves;
+        Presenter Presenter;
+
         public MainWindow()
         {
             InitializeComponent();
-            Start();
-            
-        }
-        /// <summary>
-        /// Установка стартовых параметров по умолчанию
-        /// </summary>
-        private void Start()
-        {
-            saves = new ObservableCollection<IAnimalSave>();
-            saves.Add(new SaveModeJSON());
-            saves.Add(new SaveModeXML());
-            SaveModCombobox.ItemsSource = saves;
-            repository = FactoryRep.GetRep(10, saves[0]);
             SaveModCombobox.SelectedIndex = 0;
-            GridViewAnimals.DataContext = repository.GetAnimals();
+            Presenter = new Presenter(this);
+            Presenter.Info(); 
+
         }
+      
         /// <summary>
         /// Пкм - добавить
         /// </summary>
@@ -51,11 +40,11 @@ namespace AnimalsWPF
         private void MenuItemAddClick(object sender, RoutedEventArgs e)
         {
             //открыть новое окно с формой заполнения 
-            NewAnimal animal = new NewAnimal();
-            animal.ShowDialog();
-            if (animal.DialogResult.Value)
+            NewAnimal AnimalWindow = new NewAnimal();
+            AnimalWindow.ShowDialog();
+            if (AnimalWindow.DialogResult.Value)
             {
-                repository.Add(animal.Animal);
+                Presenter.AddNewAnimal(AnimalWindow.Animal);
             }            
         }
 
@@ -64,8 +53,8 @@ namespace AnimalsWPF
         /// </summary>
         private void MenuItemDeleteClick(object sender, RoutedEventArgs e)
         {
-            AnimalNow = GridViewAnimals.SelectedItem as IAnimal; //Выбранный объект
-            repository.Delete(AnimalNow);
+            Presenter.DeleteAnimal();
+            
         }
 
         /// <summary>
@@ -73,16 +62,37 @@ namespace AnimalsWPF
         /// </summary>
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            repository.SaveAnimals("Animal"); //пока что имя по умолчанию
+            Presenter.Save();
+            
         }
 
         private void SaveModCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SaveModCombobox.SelectedItem != null)
             {
-                IAnimalSave typeSave = (IAnimalSave)SaveModCombobox.SelectedItem;
-                repository.Mode = typeSave;
+                //IAnimalSave typeSave = (IAnimalSave)SaveModCombobox.SelectedItem; //уже не надо
+                Presenter.ChangeModSave();
             }
+        }
+
+        public ObservableCollection<IAnimal> Animals //таблица значений 
+        {
+            set => GridViewAnimals.DataContext = value;
+        }
+
+        public ObservableCollection<IAnimalSave> Saves //комбобокс вариантов сохранения
+        {
+            set => SaveModCombobox.ItemsSource = value;
+        }
+
+        public IAnimalSave ModSave //текущий объект из комбобокса
+        {
+            get => (IAnimalSave)this.SaveModCombobox.SelectedItem;
+        }
+
+        public IAnimal AnimalNow //выбранный сейчас объект 
+        {
+            get => (IAnimal)GridViewAnimals.SelectedItem;
         }
     }
 }

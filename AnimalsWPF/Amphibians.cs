@@ -25,6 +25,9 @@ namespace AnimalsWPF
         /// </summary>
         public string CountryFrom { get; set; }
 
+        /// <summary>
+        /// Конструктор 
+        /// </summary>
         public Amphibians(string name, double age, double weight, string countryFrom)
         {
             this.Name = name;
